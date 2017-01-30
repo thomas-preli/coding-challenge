@@ -1,0 +1,6 @@
+{
+  "name": "coding-challenge-front-end",
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
