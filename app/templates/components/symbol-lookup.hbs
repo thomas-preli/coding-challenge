@@ -1,0 +1,6 @@
+<h2>{{title}}</h2>
+
+{{#power-select search=(action "searchRepo") selected=selectedStockSymbol placeholder="Enter a symbol"
+                onchange=(action "symbolChange") as |stockSymbol|}}
+  {{stockSymbol}}
+{{/power-select}}
