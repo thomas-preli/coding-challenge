@@ -1,6 +1,8 @@
-<h2>{{title}}</h2>
+<h2>Enter Symbol</h2>
 
-{{#power-select search=(action "searchRepo") selected=selectedStockSymbol placeholder="Enter a symbol"
-                onchange=(action "symbolChange") as |stockSymbol|}}
-  {{stockSymbol}}
+{{#power-select selected=selectedStockSymbol loadingOptions="Loading Symbols..."
+                placeholder="Enter a symbol" onchange=(action (mut selectedStockSymbol))
+                search=(action "searchRepo") options=symbols
+                oninput=(action "checkLength") searchField="name" as |stockSymbol|}}
+  {{ stockSymbol.symbol }} - {{ stockSymbol.name }}
 {{/power-select}}
