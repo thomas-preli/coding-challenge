@@ -1,8 +1,8 @@
-import Ember from 'ember';
+import Ember from "ember";
 
 export default Ember.Component.extend({
   ajax: Ember.inject.service(),
-  symbols: [],
+  messageBus: Ember.inject.service('message-bus'),
 
   actions: {
     checkLength(text, select) {
@@ -17,6 +17,11 @@ export default Ember.Component.extend({
     searchRepo(searchTerm) {
       const url = `http://localhost:8080/symbols?searchTerm=${searchTerm}`;
       return this.get('ajax').request(url).then((json) => json.symbols);
+    },
+
+    symbolSelected(symbol) {
+      this.set('selectedStockSymbol', symbol);
+      this.get('messageBus').publish('symbol-changed', symbol.symbol);
     }
   }
 });
