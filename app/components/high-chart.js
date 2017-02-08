@@ -1,5 +1,4 @@
 import Ember from 'ember';
-import stockData from '../data/stock';
 
 export default Ember.Component.extend({
   chartOptions: {
@@ -7,9 +6,9 @@ export default Ember.Component.extend({
       selected: 1
     },
     title: {
-      text: 'AAPL'
+      text: 'NO SYMBOL SELECTED'
     }
   },
 
-  chartData: Ember.copy(stockData, true)
+  chartData: []
 });
